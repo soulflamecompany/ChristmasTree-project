@@ -44,8 +44,11 @@
     <link rel="stylesheet" href="styles/pay.css" />
     <link rel="stylesheet" href="styles/option-pay.css" />
     <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/overlay.css" />
+    <link rel="stylesheet" href="styles/modal.css" />
 
     <script src="script/burger.js" defer></script>
+    <script src="script/modal.js" defer></script>
   </head>
   <body>
     <header class="header">
@@ -149,7 +152,10 @@
               для рождества
             </p>
             <div class="product__button-wrapper">
-              <button class="product__button product__button_order">
+              <button
+                class="product__button product__button_order"
+                data-order="Пихта Фразера"
+              >
                 Заказать
               </button>
               <a class="product__button product__button_more" href="#"
@@ -169,18 +175,22 @@
       <section class="product" id="two">
         <div class="container product__container">
           <div class="product__content">
-            <h2 class="product__title">Пихта Фразера</h2>
+            <h2 class="product__title">Русская ель</h2>
             <p class="product__features">
-              Пихта Фразера чаще использовалась в качестве рождественской ёлки
-              Белого дома
+              Русская ель — наиболее традиционная разновидность рождественских
+              деревьев, которую можно встретить в большинстве советских фильмов
+              про новый год
             </p>
             <p class="product__description">
-              Мягкий аромат, форма, и способность сохранять мягкие иголки в
-              течение длительного времени, делают её одним из лучших деревьев
-              для рождества
+              Отличительной особенностью русской ёлки являются выраженный
+              хвойный запах, короткие колючие иголки и сравнительно менее пышная
+              крона
             </p>
             <div class="product__button-wrapper">
-              <button class="product__button product__button_order">
+              <button
+                class="product__button product__button_order"
+                data-order="Русская ель"
+              >
                 Заказать
               </button>
               <a class="product__button product__button_more" href="#"
@@ -189,8 +199,8 @@
             </div>
           </div>
           <img
-            src="assets/phraser-fir.jpg"
-            alt="Пихта Фразера"
+            src="assets/russian-spruce.jpg"
+            alt="Русская ель"
             width="630"
             height="590"
             class="product__picture"
@@ -200,18 +210,20 @@
       <section class="product" id="three">
         <div class="container product__container">
           <div class="product__content">
-            <h2 class="product__title">Пихта Фразера</h2>
+            <h2 class="product__title">Сибирская&nbsp;пихта</h2>
             <p class="product__features">
-              Пихта Фразера чаще использовалась в качестве рождественской ёлки
-              Белого дома
+              Пихта сибирская является одной из самых красивых и ароматных
+              хвойных пород и ее часто можно встретить в парках и садах
             </p>
             <p class="product__description">
-              Мягкий аромат, форма, и способность сохранять мягкие иголки в
-              течение длительного времени, делают её одним из лучших деревьев
-              для рождества
+              Хвоя Сибирской пихты в отличии от еловой крупнее, зеленее,
+              совершенно не колючая и мягкая как трава
             </p>
             <div class="product__button-wrapper">
-              <button class="product__button product__button_order">
+              <button
+                class="product__button product__button_order"
+                data-order="Сибирская пихта"
+              >
                 Заказать
               </button>
               <a class="product__button product__button_more" href="#"
@@ -220,8 +232,8 @@
             </div>
           </div>
           <img
-            src="assets/phraser-fir.jpg"
-            alt="Пихта Фразера"
+            src="assets/siberian-fir.jpg"
+            alt="Сибирская пихта"
             width="630"
             height="590"
             class="product__picture"
@@ -393,6 +405,61 @@
         </div>
       </div>
     </footer>
+
+    <div class="overlay overlay_order">
+      <div class="modal">
+        <button class="modal__close">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+
+        <h2 class="modal__title">Оформить заказ</h2>
+
+        <form
+          class="modal__form"
+          action="https://jsonplaceholder.typicode.com/posts"
+          method="post"
+        >
+          <label class="modal__label">
+            <span class="modal__label-text">ФИО</span>
+            <input
+              class="modal__input"
+              required
+              name="bio"
+              type="text"
+              placeholder="Введите ваше ФИО"
+            />
+          </label>
+
+          <label class="modal__label modal__label_last">
+            <span class="modal__label-text">Телефон</span>
+            <input
+              class="modal__input"
+              required
+              name="tel"
+              type="tel"
+              placeholder="Введите ваш номер телефона"
+            />
+          </label>
+
+          <input class="modal__order" type="hidden" name="order" />
+
+          <button class="modal__button">Заказать звонок</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="overlay overlay_consultation"></div>
+
     <svg class="hide">
       <symbol
         id="logo"
